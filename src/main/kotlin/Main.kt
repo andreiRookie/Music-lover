@@ -36,7 +36,7 @@ fun main() {
                     "Текущая корзина: $shoppingBasket руб; Постоянный клиент( >3 покупок)? -$regularCustomerStatus")
             println("(Суммарная скидка не может превышать половины стоимости корзины)")
 
-            val discount = discountCalculator(sumOfPurchases, isRegularCustomer, shoppingBasket)
+            val discount = calculateDiscount(sumOfPurchases, isRegularCustomer, shoppingBasket)
 
             println("С учетом общей скидки ($discount руб) сумма покупки составила: ${shoppingBasket - discount} руб")
             println()
@@ -47,7 +47,7 @@ fun main() {
     }
 }
 
-fun discountCalculator(sumOfPurchases: UInt, isRegularCustomer: Boolean, shoppingBasket: UInt): UInt {
+fun calculateDiscount(sumOfPurchases: UInt, isRegularCustomer: Boolean, shoppingBasket: UInt): UInt {
     var discount = 0U
 
     if ((sumOfPurchases >= SMALL_DISCOUNT_START) && (sumOfPurchases < BIG_DISCOUNT_START)) {
